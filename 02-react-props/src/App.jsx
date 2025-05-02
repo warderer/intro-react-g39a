@@ -48,7 +48,7 @@ function App () {
           </div>
         </section>
 
-        <Info />
+        <Info title='Juntos podemos apoyar' text='Lorem ipsum dolor sit amet consectetur adipisicing elit.' />
 
         <section className='cards contenedor'>
           <h2 className='titulo'>Our services</h2>
@@ -79,6 +79,9 @@ function App () {
             </article>
           </div>
         </section>
+
+        <Info title='Hola G39A' text='Estamos Aprendiendo React. ¡Vamos a echarle ganitas!' />
+
         <section className='galeria'>
           <div className='contenedor'>
             <h2 className='titulo'>Our work</h2>
