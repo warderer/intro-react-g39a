@@ -5,7 +5,6 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App saludo='Hola' nombre='Benjamín' />
-    <App saludo='Hi' nombre='Abraham' />
+    <App />
   </StrictMode>
 )
