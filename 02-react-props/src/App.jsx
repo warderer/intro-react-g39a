@@ -2,9 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
-function App (props) {
+function App ({ saludo, nombre }) {
   const [count, setCount] = useState(0)
-  console.log(props)
 
   return (
     <>
@@ -19,7 +18,7 @@ function App (props) {
           count is {count}
         </button>
         <p>
-          {props.saludo} {props.nombre}
+          {saludo} {nombre}
         </p>
       </div>
       <p className='read-the-docs'>
