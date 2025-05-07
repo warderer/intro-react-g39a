@@ -1,13 +1,25 @@
 import { useState } from 'react'
+import ToDoItem from './components/ToDoItem'
 import './App.css'
 
 function App () {
   /* 1. Creo el estado donde guardare la información del input */
   const [inputValue, setInputValue] = useState('')
 
+  /* 4. Creo un nuevo estado para manejar la lista de tareas */
+  const [todoList, setTodoList] = useState([])
+
   /* 3. Creo una función que se ejecuta cuando se hace click al boton agregar */
+  /* 5. Modificar la función para que agregue la tarea a la lista */
   const handleAdd = () => {
-    console.log('Agregue:', inputValue)
+    // console.log('Agregue:', inputValue)
+    setTodoList([...todoList, inputValue])
+    setInputValue('') // Limpiar el input después de agregar la tarea
+  }
+
+  /* 6. Función que se ejecuta cuando se hace clic en eliminar */
+  const deleteTodo = (index) => {
+    setTodoList(todoList.filter((_, i) => i !== index))
   }
 
   return (
@@ -23,9 +35,15 @@ function App () {
       <button onClick={handleAdd}>Agregar</button>
       {/* ul>li{Item $}*3>button{Eliminar} */}
       <ul>
-        <li>Item 1<button>Eliminar</button></li>
-        <li>Item 2<button>Eliminar</button></li>
-        <li>Item 3<button>Eliminar</button></li>
+        {
+          todoList.map((todo, index) => (
+            <ToDoItem
+              key={index}
+              todoName={todo}
+              handleDelete={() => deleteTodo(index)}
+            />
+          ))
+        }
       </ul>
     </>
   )
