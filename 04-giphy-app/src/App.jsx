@@ -1,10 +1,19 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 import ImageCard from './components/ImageCard'
+import SearchBar from './components/SearchBar'
+import './App.css'
 
 function App () {
   const [gifs, setGifs] = useState([])
   const apiKey = import.meta.env.VITE_GIPHY_API_KEY
+
+  const sendSearch = async (searchTerm) => {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`
+    )
+    const results = await response.json()
+    setGifs(results.data)
+  }
 
   useEffect(() => {
     const fetchGifs = async () => {
@@ -22,6 +31,7 @@ function App () {
     <>
       <h1>Giphy App</h1>
       <div className='app'>
+        <SearchBar handleSearch={sendSearch} />
         <div className='grid-cards'>
           {
             gifs.map(gif => (
