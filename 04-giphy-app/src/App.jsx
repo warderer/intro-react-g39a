@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import ImageCard from './components/ImageCard'
 
 function App () {
   const [gifs, setGifs] = useState([])
@@ -20,6 +21,19 @@ function App () {
   return (
     <>
       <h1>Giphy App</h1>
+      <div className='app'>
+        <div className='grid-cards'>
+          {
+            gifs.map(gif => (
+              <ImageCard
+                key={gif.id}
+                url={gif.images.fixed_height.url}
+                title={gif.title}
+              />
+            ))
+          }
+        </div>
+      </div>
     </>
   )
 }
