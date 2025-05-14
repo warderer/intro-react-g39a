@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [pokemons, setPokemons] = useState([])
@@ -45,7 +46,9 @@ const Home = () => {
                 alt={pokemon.name}
               />
               <div className='card-body'>
-                <h5 className='card-title'>{pokemon.name}</h5>
+                <Link to={`/pokemon/${pokemon.url.split('/')[6]}`} className='btn btn-warning'>
+                  <h5 className='card-title'>{pokemon.name}</h5>
+                </Link>
               </div>
             </div>
           </div>
