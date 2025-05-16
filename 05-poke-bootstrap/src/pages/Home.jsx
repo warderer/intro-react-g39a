@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <div className='container'>
-      <h1>Home</h1>
+      <h1>Pokédex</h1>
 
       <form className='form-inline w-100 mb-3'>
         <input
